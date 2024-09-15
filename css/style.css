@@ -1,0 +1,82 @@
+:root{
+    --tfp-main-color: #333;
+}
+
+/*keyframes*/
+@keyframes scale-down{to{transform:scale(.75)}}
+@keyframes slide-in-up{0%{transform:translateY(100%)}}
+
+
+.tfp-form *{
+    box-sizing: border-box;
+}
+.tfp-form{
+    border: 1px solid var(--tfp-main-color);
+    padding: 20px;
+    box-shadow: 0 0 12px -2px rgba(135, 135, 166, 0.75);
+}
+.tfp-submit{
+    text-align: right;
+}
+.tfp-submit [type=submit]{
+    background-color: var(--tfp-main-color);
+    color: #fff;
+    border: 1px solid var(--tfp-main-color);
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: .9em;
+    transition: all .3s ease;
+}
+.tfp-submit [type=submit]:hover{
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--tfp-main-color);
+}
+.tfp-input{
+    width: 100%;
+    margin-bottom: 1em;
+}
+.tfp-form label{
+    margin-bottom: 5px;
+    display: inline-block;
+}
+#tfp_form .tfp-input input{
+    width: 100%;
+    height: 3em;
+    padding: .5em 1em;
+    font-size: 1em;
+}
+dialog{
+    display: block;
+    width: 400px;
+    inset: 0;
+    top: 10vh;
+    padding-block: 40px;
+    border: 1px solid #666;
+    transition: opacity .3s ease;
+    color: #10bf0c;
+    animation: scale-down .5s forwards;
+    animation-timing-function: ease-in;
+    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+dialog [method="dialog"] button{
+    background-color: var(--tfp-main-color);
+    color: #fff;
+    border: 1px solid var(--tfp-main-color);
+    padding: 9px 15px;
+    cursor: pointer;
+    font-size: .9em;
+    transition: all .3s ease;
+    margin-top: 15px;
+}
+dialog[open] {
+    animation: slide-in-up .5s forwards;
+}
+
+dialog:not([open]) {
+    pointer-events: none;
+    opacity: 0;
+}
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.8);
+}
